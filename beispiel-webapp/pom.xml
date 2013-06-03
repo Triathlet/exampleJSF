@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>beispiel-parent</artifactId>
+    <groupId>de.farkas</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>beispiel-webapp</artifactId>
+  <packaging>war</packaging>
+  <build>
+		<finalName>Beispiel</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk1.7.0_06\bin\javac</executable>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-bom</artifactId>
+                <version>${org.richfaces.bom.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+  <dependencies>
+  
+  <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		
+		<!-- Spring Security start es gibt eine eigene Version unabhaengig von Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+		 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		<!-- Spring Security end -->
+		
+  <!-- JSF -->
+		<dependency>
+        	<groupId>org.richfaces.ui</groupId>
+        	<artifactId>richfaces-components-ui</artifactId>
+    	</dependency>
+    	<dependency>
+        	<groupId>org.richfaces.core</groupId>
+        	<artifactId>richfaces-core-impl</artifactId>
+   		</dependency>	
+		<dependency>
+        	<groupId>javax.servlet</groupId>
+        	<artifactId>servlet-api</artifactId>
+        	<scope>provided</scope>
+    	</dependency>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jsp-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>jsp-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
+   <dependency>
+        <groupId>com.sun.faces</groupId>
+        <artifactId>jsf-api</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.faces</groupId>
+        <artifactId>jsf-impl</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>javax.el</groupId>
+        <artifactId>el-api</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>el-impl</groupId>
+        <artifactId>el-impl</artifactId>
+    </dependency>
+    <dependency>
+	<groupId>commons-digester</groupId>
+	<artifactId>commons-digester</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>commons-beanutils</groupId>
+	<artifactId>commons-beanutils</artifactId>
+</dependency>
+<dependency>
+	<groupId>commons-collections</groupId>
+	<artifactId>commons-collections</artifactId>
+</dependency>
+<dependency>
+	<groupId>commons-logging</groupId>
+	<artifactId>commons-logging</artifactId>
+</dependency>
+
+		<dependency>
+            <groupId>com.sun.facelets</groupId>
+            <artifactId>jsf-facelets</artifactId>
+        </dependency>
+        
+        <dependency>
+        <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+        </dependency>
+        
+        <!-- Orchetra start -->
+        
+        	<dependency>
+        		<groupId>org.apache.myfaces.orchestra</groupId>
+        		<artifactId>myfaces-orchestra-core20</artifactId>
+        	</dependency>
+        	<!-- no other dependencies -->
+        
+        <!-- Orchestra end -->
+        <dependency>
+        	<groupId>de.farkas</groupId>
+        	<artifactId>beispiel-core</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+        	<groupId>de.farkas</groupId>
+        	<artifactId>beispiel-commons</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
+  </dependencies>
+</project>

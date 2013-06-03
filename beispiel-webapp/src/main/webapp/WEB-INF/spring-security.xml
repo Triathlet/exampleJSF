@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+ 
+ 	<beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+		<beans:property name="rolePrefix" value=""/>
+	</beans:bean>
+
+	<http use-expressions="true" auto-config="true">
+		<intercept-url pattern="/**" access="hasRole('securitytest')" />
+		<http-basic />
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+		<!-- <password-encoder ref="encoder"/>-->
+			<user-service >
+				<user name="tomcat" password="" authorities="securitytest" />
+				<user name="test" password="test" authorities="securitytest" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+ 
+	<!-- <authentication-manager>
+	  <authentication-provider>
+	    <user-service>
+		<user name="mkyong" password="123456" authorities="ROLE_USER" />
+	    </user-service>
+	  </authentication-provider>
+	</authentication-manager> -->
+ 
+</beans:beans>
