@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<Properties id="1" property_key="TestB" property_value="4.5.6"/>
+	<Properties id="*" property_key="TestA" property_value="1.2.3"/>
+</dataset>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich">
+    <h:head>
+        <title>XHTML page</title>
+    </h:head>
+    <h:body>
+    <h1>JSF 2.0 + Spring Example</h1>
+    	<rich:dataTable value="#{propertyBean.listProperties}" var="p"
+    		>
+ 
+    		<rich:column>
+    			<f:facet name="header">
+    				Property ID
+    			</f:facet>
+    				#{p.id}
+    		</rich:column>
+ 
+    		<rich:column>
+    			<f:facet name="header">
+    				Key
+				</f:facet>
+    				#{p.key}
+    		</rich:column>
+ 
+ 			<rich:column>
+    			<f:facet name="header">
+    				Value
+				</f:facet>
+    				#{p.value}
+    		</rich:column>
+    		    	</rich:dataTable>
+    		
+    		<h2>Add New Property</h2>
+    		
+        <h:outputText value="JSF components here." />
+        
+        <h:form>
+    			<h:selectOneMenu value="#{propertyBean.bereich}" valueChangeListener="#{propertyBean.valueChanged}">
+            		<f:selectItems value="#{propertyBean.bereiche}" />
+            		<a4j:ajax event="valueChange" render="second" execute="@this" />
+        		</h:selectOneMenu>
+        		<a4j:outputPanel id="second" layout="block">
+            		<h:selectOneMenu value="#{propertyBean.variante}" valueChangeListener="#{propertyBean.varianteValueChanged}" >
+                		<f:selectItems value="#{propertyBean.varianten}" />
+                		<a4j:ajax event="valueChange" execute="@this" />
+            		</h:selectOneMenu>
+        		</a4j:outputPanel>
+    		<h:commandButton action="#{propertyBean.submitAll}"/>
+    		
+    		</h:form>
+    
+    </h:body>  
+</html>
